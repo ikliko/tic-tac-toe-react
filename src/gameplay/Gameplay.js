@@ -1,27 +1,37 @@
 import React, {useEffect, useState} from "react";
 import './Gameplay.css'
 
+const defaultPlayerState = {
+    name: '',
+    score: 0,
+    sign: ''
+};
+
+const defaultFieldState = () => [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null],
+];
+
+const defaultGameState = {
+    isFirstMove: true,
+    isRunning: true,
+    winner: null,
+};
+
 function Gameplay() {
-    const [field, setField] = useState([
-        [null, null, null],
-        [null, null, null],
-        [null, null, null],
-    ]);
+    const [field, setField] = useState(defaultFieldState());
     const [playerOne, setPlayerOne] = useState({
-        name: '',
-        score: 0,
+        ...defaultPlayerState,
         sign: 'X'
     });
     const [playerTwo, setPlayerTwo] = useState({
-        name: '',
-        score: 0,
+        ...defaultPlayerState,
         sign: 'O'
     });
     const [currentPlayer, setCurrentPlayer] = useState(playerOne);
     const [game, setGame] = useState({
-        isFirstMove: true,
-        isRunning: true,
-        winner: null,
+        ...defaultGameState
     });
 
     const checkForWinner = () => {
@@ -65,6 +75,7 @@ function Gameplay() {
                 }
             }
         }
+        console.log('no rows');
 
         // columns
         for (let i = 0; i < 3; i++) {
@@ -105,6 +116,8 @@ function Gameplay() {
                 }
             }
         }
+        console.log('no cols');
+
 
         // main diag
         let xCountMainDiag = 0;
@@ -157,6 +170,7 @@ function Gameplay() {
                 }
             }
         }
+        console.log('no main d');
 
         // second diag
         const cell1 = field[0][2];
@@ -169,7 +183,7 @@ function Gameplay() {
             return;
         }
 
-        const cell3 = field[1][1];
+        const cell3 = field[2][0];
         if (!cell3) {
             return;
         }
@@ -193,6 +207,9 @@ function Gameplay() {
             isRunning: false,
             winner: playerTwo
         });
+
+        console.log('no d');
+
 
         return null;
     };
@@ -221,18 +238,12 @@ function Gameplay() {
     };
 
     const newGame = () => {
+        console.log(defaultGameState, defaultFieldState());
+
         setGame({
-            isFirstMove: true,
-            isRunning: true,
-            winner: null,
+            ...defaultGameState
         });
-
-        setField([
-            [null, null, null],
-            [null, null, null],
-            [null, null, null],
-        ]);
-
+        setField(defaultFieldState());
         setCurrentPlayer(playerOne);
     };
 
