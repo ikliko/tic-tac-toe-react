@@ -75,7 +75,6 @@ function Gameplay() {
                 }
             }
         }
-        console.log('no rows');
 
         // columns
         for (let i = 0; i < 3; i++) {
@@ -116,8 +115,6 @@ function Gameplay() {
                 }
             }
         }
-        console.log('no cols');
-
 
         // main diag
         let xCountMainDiag = 0;
@@ -170,7 +167,6 @@ function Gameplay() {
                 }
             }
         }
-        console.log('no main d');
 
         // second diag
         const cell1 = field[0][2];
@@ -207,9 +203,6 @@ function Gameplay() {
             isRunning: false,
             winner: playerTwo
         });
-
-        console.log('no d');
-
 
         return null;
     };
