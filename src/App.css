@@ -9,6 +9,7 @@ body,
   text-align: center;
   background: #000;
   color: white;
+  display: flex;justify-content: center;align-items: center;
 }
 
 .App-logo {

@@ -1,19 +1,29 @@
-import React, {useEffect, useState} from "react";
-import './Gameplay.css'
+import {useEffect, useState} from "react";
+import './Gameplay.css';
 
-const defaultPlayerState = {
+interface Player {
+    name: string,
+    score: number,
+    sign: string
+}
+
+const defaultPlayerState: Player = {
     name: '',
     score: 0,
     sign: ''
 };
 
-const defaultFieldState = () => [
+const defaultFieldState:() => (string | null)[][] = () => [
     [null, null, null],
     [null, null, null],
     [null, null, null],
 ];
 
-const defaultGameState = {
+const defaultGameState: {
+    isFirstMove: boolean;
+    isRunning: boolean;
+    winner: Player | null;
+} = {
     isFirstMove: true,
     isRunning: true,
     winner: null,
@@ -207,6 +217,7 @@ function Gameplay() {
         return null;
     };
 
+
     const updateCurrentPlayer = () => {
         if (currentPlayer.sign === playerOne.sign) {
             setCurrentPlayer(playerTwo);
@@ -240,7 +251,7 @@ function Gameplay() {
         setCurrentPlayer(playerOne);
     };
 
-    const onCellClick = (row, cell) => {
+    const onCellClick = (row: number, cell: number) => {
         return () => {
             if (!game.isRunning) {
                 return;
@@ -256,6 +267,7 @@ function Gameplay() {
             });
 
             const newField = field.slice();
+            console.log(newField, row, cell);
             newField[row][cell] = currentPlayer.sign;
             setField(newField);
         }
@@ -274,6 +286,7 @@ function Gameplay() {
         return () => {
         }
     }, [field]);
+
 
     return <div className="Gameplay">
         {
