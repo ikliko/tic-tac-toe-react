@@ -1,3 +1,30 @@
+.board {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.board__info {
+
+}
+
+.board__info .player {
+    margin-bottom: 1rem;
+}
+
+.board__info .player .player__heading {
+}
+
+.board__info .player .player__info {
+    display: flex;
+    gap: 1rem;
+}
+
+.board__playground {
+
+}
+
+
 .Gameplay {
     width: 600px;
     border: 1px solid #ffffff;

@@ -1,14 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Gameplay from "./Gameplay/Gameplay";
+import Gameplay from "./components/Gameplay/Gameplay";
 
 function App() {
-  return (
-    <div className="App">
-      <Gameplay/>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Gameplay />
+        </div>
+    );
 }
 
 export default App;

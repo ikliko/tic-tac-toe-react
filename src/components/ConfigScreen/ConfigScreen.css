@@ -1,0 +1,42 @@
+.form {
+    margin: 0 auto;
+    width: 15rem;
+    border-radius: 1rem;
+    box-shadow: .125rem .125rem 1rem rgba(255, 255, 255, .5);
+    padding: 1rem;
+}
+
+.form__group {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.form__group > label {
+    display: block;
+    text-align: left;
+    margin-bottom: .125rem;
+}
+
+.form__group > input {
+    width: 100%;
+    padding: 2px 5px;
+}
+
+.pick-sign__wrapper {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.config-button {
+    --clr-state: rgba(255, 255, 255, .2);
+
+    background: none;
+    color: var(--clr-state);
+    border: .125rem solid var(--clr-state);
+}
+
+.config-button.active {
+    --clr-state: rgba(255, 255, 255, 1);
+}

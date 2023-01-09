@@ -1,0 +1,26 @@
+.playground {
+    width: 30rem;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.playground__row {
+    display: flex;
+    height: 100%;
+}
+
+.playground__cell {
+    border: 1px solid white;
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.playground__placeholder {
+    color: rgba(255, 255, 255, .3);
+}
