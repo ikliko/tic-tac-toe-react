@@ -30,7 +30,7 @@ const Playground = ({
             }
         });
 
-    function onCellMouseLeave() {
+    const onCellMouseLeave = () => {
         setPlaceholder(null);
     }
 
